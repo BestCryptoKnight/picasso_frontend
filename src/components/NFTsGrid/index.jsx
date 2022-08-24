@@ -15,8 +15,8 @@ const NFTsGrid = ({
   loading,
   showCreate,
   category,
-  onCreate = () => {},
-  onLike = () => {},
+  onCreate = () => { },
+  onLike = () => { },
 }) => {
   const [n, setN] = useState(4);
   const [smallItemNum, setSmallItemNum] = useState(false);
@@ -44,8 +44,8 @@ const NFTsGrid = ({
   const className = cx(styles.nft, styles[`num${n}`]);
   return (
     <div
-      className={cx(
-        styles.container,
+      className={"p1 " + cx(
+        styles.nft,
         smallItemNum ? styles.smallNumCont : '',
         loading ? styles.skeletonWrapper : ''
       )}

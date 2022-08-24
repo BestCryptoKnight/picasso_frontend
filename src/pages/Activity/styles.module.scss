@@ -1,156 +1,235 @@
 .container {
-  padding: 20px 180px 50px 180px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
+    padding: 20px 180px 50px 180px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 .activityWrapper {
-  width: calc(66.7% - 20px);
-  height: fit-content;
+    width: calc(75%);
+    height: 100%;
+    // height: fit-content;
 }
 
 .activityFilter {
-  margin-left: 20px;
-  width: calc(33.3%);
-  height: fit-content;
-  border-radius: 12px;
-  box-shadow: 0px 3px 16px rgb(47 83 109 / 12%);
+    margin-left: 20px;
+    width: calc(25%);
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0px 3px 16px rgb(47 83 109 / 12%);
+}
+
+.loadingWrapper {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
 }
 
 .activityHeader {
-  width: 100%;
-  height: 80px;
-  box-shadow: 0px 3px 16px rgb(47 83 109 / 12%);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  padding-left: 20px;
-  font-size: 24px;
-  background: darkblue;
-  color: white;
-  font-weight: 700;
-  margin-bottom: 30px;
+    width: 100%;
+    height: 80px;
+    box-shadow: 0px 3px 16px rgb(47 83 109 / 12%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    font-size: 24px;
+    background: darkblue;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 30px;
 }
 
 .filterHeader {
-  font-size: 20px;
-  font-weight: 400;
-  padding: 20px;
-  border-bottom: 2px solid #b9b1b1;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 20px;
+    border-bottom: 2px solid #b9b1b1;
+}
+
+.filterBody {
+    display: flex;
+    justify-content: space-between;
+    height: 770px;
 }
 
 .filterContent {
-  padding: 10px 20px;
-  display: flex;
-  font-size: 14px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+    padding: 10px 20px;
+    display: flex;
+    font-size: 14px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .filterButton {
-  border-radius: 30px;
-  border: 1px solid rgb(129 84 84 / 10%);
-  margin: 6px;
-  list-style: none;
-  padding: 10px 20px;
-  color: black;
-  cursor: pointer;
-  &:hover {
-    background-color: darkblue;
+    border-radius: 10px;
+    border: 1px solid rgb(129 84 84 / 10%);
+    margin: 6px;
+    list-style: none;
+    padding: 6px 25px;
     color: white;
-  }
+    cursor: pointer;
+    background: #242424;
+    &:hover {
+        background-color: #ffffff;
+        color: #363636;
+        i {
+            color: #363636 !important;
+        }
+    }
 }
 
 .userAvatar {
-  width: 160px;
-  height: 160px;
-  border-radius: 15px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 160px;
+    height: 160px;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .activeFilter {
-  background-color: darkblue;
-  color: white;
+    background-color: #ffffff;
+    color: #363636;
+    i {
+        color: #363636;
+    }
 }
 
 .activityCard {
-  padding: 20px;
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  // background-color: #ededed;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  box-shadow: 0px 3px 16px rgb(47 83 109 / 12%);
+    padding: 20px;
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    // background-color: #ededed;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0px 3px 16px rgb(47 83 109 / 12%);
 }
 
 .activityImage {
-  width: 160px;
-  height: 160px;
-  margin-right: 20px;
-  border-radius: 15px;
-  border: 1px solid rgb(129 84 84 / 10%);
+    width: 160px;
+    height: 160px;
+    margin-right: 20px;
+    border-radius: 15px;
+    border: 1px solid rgb(129 84 84 / 10%);
 }
 
 .activityName {
-  font-size: 24px;
-  font-weight: 600;
+    font-size: 24px;
+    font-weight: 600;
 }
 
 .activityInfo {
-  margin-top: 4px;
-  font-size: 16px;
-  font-weight: 300;
+    margin-top: 4px;
+    font-size: 16px;
+    font-weight: 300;
 }
 
 .operatorLink {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .loadmoreBtn {
-  margin-top: 30px;
-  font-size: 18px;
-  padding: 10px 30px;
-  background-color: darkblue;
-  color: white;
-  width: fit-content;
-  border-radius: 50px;
-  cursor: pointer;
+    margin-top: 30px;
+    font-size: 18px;
+    padding: 10px 30px;
+    background-color: darkblue;
+    color: white;
+    width: fit-content;
+    border-radius: 50px;
+    cursor: pointer;
 }
 
 .bannerSection {
-  margin-top: 70px;
-  position: relative;
+    margin-top: 70px;
+    position: relative;
 }
 
 .backgroundImg {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
+}
+
+.table {
+    width: 100%;
+    font-size: 15px;
+    padding: 20px 30px;
+    border-left: #242424;
+    border-collapse: unset;
+    thead {
+        font-size: 14px;
+        tr {
+            height: 100%;
+            th {
+                color: #c4c4c4;
+                span {
+                    color: #c4c4c4;
+                    background: #242424;
+                    border-radius: 3px;
+                    padding: 1px 3px;
+                    font-size: 12px;
+                }
+            }
+        }
+        .event {
+            width: 100% !important;
+        }
+        .token {
+            width: 100% !important;
+        }
+        .value {
+            width: 100% !important;
+        }
+        .from {
+            width: 400px !important;
+        }
+        .date {
+            width: 100% !important;
+        }
+        .scan {
+            width: 60px !important;
+        }
+    }
+    tbody {
+        tr {
+            // vertical-align: top !important;
+            td {
+                padding: 5px 0px 5px 5px !important;
+                color: #c4c4c4;
+                vertical-align: middle !important;
+                .fiat-display {
+                    padding: 5px;
+                    border-radius: 3px;
+                    background: #242424;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    padding: 100px 10px 50px 10px;
-    // width: calc(100% - 20px);
-  }
-
-  .activityWrapper {
-    width: 100%;
-    height: fit-content;
-  }
-
-  .activityFilter {
-    margin-top: 30px;
-    margin-left: 0;
-    width: 100%;
-    height: fit-content;
-    border-radius: 3px;
-    box-shadow: 0px 3px 16px rgb(47 83 109 / 12%);
-  }
+    .container {
+        flex-direction: column;
+        padding: 100px 10px 50px 10px;
+        // width: calc(100% - 20px);
+    }
+    .activityWrapper {
+        width: 100%;
+        height: fit-content;
+    }
+    .activityFilter {
+        margin-top: 30px;
+        margin-left: 0;
+        width: 100%;
+        height: fit-content;
+        border-radius: 3px;
+        box-shadow: 0px 3px 16px rgb(47 83 109 / 12%);
+    }
 }

@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createWeb3ReactRoot, Web3ReactProvider } from '@web3-react/core';
 import './index.css';
+import './bootstrap.css';
+import './responsive_custom.css';
+
 
 import App from 'components/app';
 import Web3ReactManager from 'components/Web3ReactManager';

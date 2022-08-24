@@ -32,7 +32,7 @@ const useStyles = makeStyles(() => ({
     flex: '0 0 48px',
     backgroundColor: '#FFF',
     border: '1px solid #EAEAF1',
-    padding: '0 14px',
+    padding: '0 8px',
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'row',
@@ -46,6 +46,7 @@ const useStyles = makeStyles(() => ({
     height: 22,
     marginRight: 10,
     color: 'rgba(0, 0, 0, 0.5)',
+    fill: '#242424'
   },
   collectionsList: {
     overflowY: 'auto',
@@ -83,7 +84,7 @@ const useStyles = makeStyles(() => ({
   name: {
     fontWeight: 700,
     fontSize: 16,
-    color: '#000',
+    color: '#fff',
     opacity: 0.6,
     marginRight: 4,
   },
@@ -139,7 +140,7 @@ const ExploreCollections = () => {
       <div className={classes.collectionExpandDiv}>
         <SearchIcon className={classes.iconButton} />
         <InputBase
-          className={classes.input}
+          className={classes.input + ' filter-padding'}
           placeholder="Filter"
           inputProps={{ 'aria-label': 'Filter' }}
           value={filter}
@@ -178,8 +179,8 @@ const ExploreCollections = () => {
                     item.logoImageHash
                       ? `${getRandomIPFS('', true)}${item.logoImageHash}`
                       : collections.includes(item.address)
-                      ? nftActiveIcon
-                      : nftIcon
+                        ? nftActiveIcon
+                        : nftIcon
                   }
                 />
               )}

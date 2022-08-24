@@ -52,6 +52,8 @@ export const useApi = () => {
       url: `${apiUrl}/info/getActivityInfo`,
       headers: { 'Content-Type': 'application/json' },
     });
+    console.log('activity data:::::::::::::: ');
+    console.log(data);
     if (data.status == 'success') {
       return data.data;
     }

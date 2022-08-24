@@ -1,180 +1,204 @@
+.footer_container {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 10px;
+    width: 1040px;
+}
+
+.footer_image {
+    position: absolute;
+    width: 448px;
+    height: 352px;
+    right: -101px;
+    bottom: -225px;
+    z-index: -1;
+}
+
+.footer_font {
+    font-family: Lexend Deca, sans-serif!important;
+    font-size: 16px;
+    text-decoration: none !important;
+}
+
 .footerBottom {
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  padding: 20px 10px;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 5px rgb(3 0 16 / 20%);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 20px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgb(3 0 16 / 20%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 20px;
 }
 
 .container {
-  //   position: absolute;
-  width: 100%;
-  //   height: 100vh;
-  top: 0;
-  box-sizing: border-box;
+    //   position: absolute;
+    width: 100%;
+    //   height: 100vh;
+    top: 0;
+    box-sizing: border-box;
 }
 
 .socialIcons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .socialIcon {
-  width: 40px;
-  height: 40px;
+    width: 40px;
+    height: 40px;
 }
 
 .socialLinks {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .footerSection {
-  background: #ededed;
+    background: #ededed;
 }
 
 .footerText {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .footerCont {
-  width: 75%;
-  text-align: center;
-  font-size: 14px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    width: 75%;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .firstFooter {
-  height: 110px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 72px 180px 72px 180px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
+    height: 110px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 72px 180px 72px 180px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
 .mailInput {
-  width: 45%;
+    width: 45%;
 }
 
 .communityIcon {
-  list-style: none;
-  height: 42px;
-  display: flex;
-  width: 42px;
-  background-color: darkblue;
-  justify-content: center;
-  align-items: center;
-  margin-right: 20px;
-  font-size: 20px;
-
-  &:hover {
-    border-radius: 99px;
-  }
+    list-style: none;
+    height: 42px;
+    display: flex;
+    width: 42px;
+    background-color: darkblue;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 20px;
+    &:hover {
+        border-radius: 99px;
+    }
 }
 
 .ftHeader {
-  padding-bottom: 20px;
-  font-size: 20px;
-  font-weight: 600;
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .footerMail {
-  width: calc(100% - 180px);
-  border: none;
-  padding-left: 15px;
-  padding-right: 160px;
-  height: 40px;
-  font-size: 14px;
+    width: calc(100% - 180px);
+    border: none;
+    padding-left: 15px;
+    padding-right: 160px;
+    height: 40px;
+    font-size: 14px;
 }
 
 .mailButton {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 160px;
-  height: 100%;
-  background-color: darkblue;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 16px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 160px;
+    height: 100%;
+    background-color: darkblue;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
 }
 
 .communityLink {
-  width: 40%;
+    width: 40%;
 }
 
 .secondFooter {
-  height: 350px;
-  padding: 70px 180px 70px 180px;
-  display: flex;
-  flex-direction: row;
+    height: 350px;
+    padding: 70px 180px 70px 180px;
+    display: flex;
+    flex-direction: row;
 }
 
 .ftContent {
-  width: 20%;
-  height: 100%;
-  padding: 20px;
+    width: 20%;
+    height: 100%;
+    padding: 20px;
 }
 
 .ftList {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 @media only screen and (max-width: 1200px) {
-  .mailInput {
-    width: 100%;
-  }
+    .mailInput {
+        width: 100%;
+    }
+    .ftContent {
+        width: calc(100% - 40px);
+    }
+    .secondFooter {
+        height: fit-content;
+        padding: 70px 15px 70px 15px;
+        display: flex;
+        flex-direction: column;
+    }
+    .communityLink {
+        margin-top: 40px;
+        width: 100%;
+    }
+    .firstFooter {
+        height: fit-content;
+        padding: 50px 15px 72px 15px;
+        display: flex;
+        flex-direction: column;
+    }
+    .footerCont {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .footerText {
+        margin-top: 15px;
+        justify-content: center;
+    }
+    .socialLinks {
+        align-items: center;
+    }
+}
 
-  .ftContent {
-    width: calc(100% - 40px);
-  }
-
-  .secondFooter {
-    height: fit-content;
-    padding: 70px 15px 70px 15px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .communityLink {
-    margin-top: 40px;
-    width: 100%;
-  }
-
-  .firstFooter {
-    height: fit-content;
-    padding: 50px 15px 72px 15px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .footerCont {
-    width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column-reverse;
-  }
-
-  .footerText {
-    margin-top: 15px;
-    justify-content: center;
-  }
-
-  .socialLinks {
-    align-items: center;
-  }
+@media (min-width: 768px) {
+    .md\:block {
+        display: block!important;
+    }
 }

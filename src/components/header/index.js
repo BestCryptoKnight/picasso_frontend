@@ -4,7 +4,8 @@ import cx from 'classnames';
 import Skeleton from 'react-loading-skeleton';
 import { Menu } from '@material-ui/core';
 import { useWeb3React } from '@web3-react/core';
-import { ExpandMore, Search as SearchIcon } from '@material-ui/icons';
+import { ExpandMore, Search as SearchIcon, } from '@material-ui/icons';
+import MenuIcon from '@mui/icons-material/Menu';
 import { useDispatch, useSelector } from 'react-redux';
 // import StickyBox from 'react-sticky-box';
 import axios from 'axios';
@@ -353,8 +354,7 @@ const Header = () => {
   };
 
   const toggleMobileSearch = () => {
-    if (isSearchShow) setIsSearchShow(false);
-    else setIsSearchShow(true);
+    setIsSearchShow(!isSearchShow);
     setAnchorEl(null);
   };
 
@@ -420,41 +420,41 @@ const Header = () => {
       <div className={styles.menuSeparator} />
       {account?.toLowerCase() === ADMIN_ADDRESS.toLowerCase()
         ? [
-            // <div key={0} className={styles.menuItem} onClick={addMod}>
-            //   Add Mod
-            // </div>,
-            // <div key={1} className={styles.menuItem} onClick={removeMod}>
-            //   Remove Mod
-            // </div>,
-            // <div
-            //   key={2}
-            //   className={styles.menuItem}
-            //   onClick={reviewCollections}
-            // >
-            //   Review Collections
-            // </div>,
-            <div key={3} className={styles.menuItem} onClick={banCollection}>
-              Ban Collection
-            </div>,
-            <div key={4} className={styles.menuItem} onClick={unbanCollection}>
-              Unban Collection
-            </div>,
-            <div key={5} className={styles.menuItem} onClick={banItems}>
-              Ban Items
-            </div>,
-            <div key={6} className={styles.menuItem} onClick={banUser}>
-              Ban a user
-            </div>,
-            <div key={9} className={styles.menuItem} onClick={unbanUser}>
-              Unban a user
-            </div>,
-            // <div key={7} className={styles.menuItem} onClick={boostCollection}>
-            //   Boost Collection
-            // </div>,
-            <div key={8} className={styles.menuSeparator} />,
-          ]
+          // <div key={0} className={styles.menuItem} onClick={addMod}>
+          //   Add Mod
+          // </div>,
+          // <div key={1} className={styles.menuItem} onClick={removeMod}>
+          //   Remove Mod
+          // </div>,
+          // <div
+          //   key={2}
+          //   className={styles.menuItem}
+          //   onClick={reviewCollections}
+          // >
+          //   Review Collections
+          // </div>,
+          <div key={3} className={styles.menuItem} onClick={banCollection}>
+            Ban Collection
+          </div>,
+          <div key={4} className={styles.menuItem} onClick={unbanCollection}>
+            Unban Collection
+          </div>,
+          <div key={5} className={styles.menuItem} onClick={banItems}>
+            Ban Items
+          </div>,
+          <div key={6} className={styles.menuItem} onClick={banUser}>
+            Ban a user
+          </div>,
+          <div key={9} className={styles.menuItem} onClick={unbanUser}>
+            Unban a user
+          </div>,
+          // <div key={7} className={styles.menuItem} onClick={boostCollection}>
+          //   Boost Collection
+          // </div>,
+          <div key={8} className={styles.menuSeparator} />,
+        ]
         : isModerator
-        ? [
+          ? [
             <div key={1} className={styles.menuItem} onClick={banCollection}>
               Ban Collection
             </div>,
@@ -469,7 +469,7 @@ const Header = () => {
             </div>,
             <div key={4} className={styles.menuSeparator} />,
           ]
-        : null}
+          : null}
       <div className={styles.menuItem} onClick={handleSignOut}>
         Sign Out
       </div>
@@ -480,7 +480,7 @@ const Header = () => {
   );
 
   const renderSearchBox = () => (
-    <div className={cx(styles.searchcont, searchBarActive && styles.active)}>
+    <div className={cx(styles.searchcont, searchBarActive && styles.active) + ' w10'}>
       <div className={styles.searchcontinner}>
         <div className={styles.searchbar}>
           <input
@@ -491,7 +491,7 @@ const Header = () => {
             onFocus={() => setSearchBarActive(true)}
             onBlur={() => setTimeout(() => setSearchBarActive(false), 200)}
           />
-          <SearchIcon className={styles.searchicon} />
+          <SearchIcon fill='black' className={`${styles.searchicon}`} />
         </div>
         {/* {false && ( */}
         {searchBarActive && (
@@ -514,9 +514,8 @@ const Header = () => {
                     >
                       <img
                         className={styles.resultimg}
-                        src={`${getRandomIPFS('', true)}${
-                          collection.logoImageHash
-                        }`}
+                        src={`${getRandomIPFS('', true)}${collection.logoImageHash
+                          }`}
                       />
                       <div className={styles.resulttitle}>
                         {collection.collectionName}
@@ -631,13 +630,17 @@ const Header = () => {
       className={
         !stikyHeaderStatus ? styles.header_first : styles.header_second
       }
+
+
     >
       <div className={styles.left}>
         <Link to="/" className={styles.logo}>
           {/* <img src="/assets/images/logo/logo-2.png" alt="logo" /> */}
-          Pi<span style={{ color: 'black' }}>ca</span>sso
+          Pi<span style={{ color: '#0a58ca' }}>ca</span>sso
         </Link>
-        {window.innerWidth >= 600 ? renderSearchBox() : ''}
+        <div className='desktop-display-640'>
+          {window.innerWidth >= 600 ? renderSearchBox() : ''}
+        </div>
         <div className={styles.secondmenu}>
           <NavLink
             to="/index"
@@ -669,19 +672,20 @@ const Header = () => {
           </NavLink>
         </div>
       </div>
+
       <div className={styles.menu}>
-        {window.innerWidth >= 600 ? (
-          renderSearchBox()
-        ) : (
+        {/* {window.innerWidth >= 600 ? renderSearchBox() : ''} */}
+        <div className='mobile-display-none-640'>
           <SearchIcon
             onClick={toggleMobileSearch}
-            className={cx(
-              styles.searchicon,
-              isSearchShow && styles.activeSearchIcon
-            )}
+            // className={cx(
+            //   styles.searchicon,
+            //   isSearchShow && styles.activeSearchIcon
+            // ) + ' cu-po'}
+            className={`${isSearchShow && styles.activeSearchIcon} mobile-display-none-640 cu-po`}
             style={{ fontSize: '25px' }}
           />
-        )}
+        </div>
         <NavLink
           to="/index"
           className={cx(styles.menuLink, styles.link)}
@@ -748,7 +752,8 @@ const Header = () => {
               </div> */}
             </div>
 
-            <ExpandMore
+            <MenuIcon
+              style={{ fontSize: '30px' }}
               className={cx(styles.expand, isMenuOpen && styles.expanded)}
             />
           </div>
@@ -770,9 +775,18 @@ const Header = () => {
         )}
       </div>
       {renderMenu}
-      {isSearchShow && (
-        <div className={styles.mobileSearch}>{renderSearchBox()}</div>
-      )}
+      {isSearchShow &&
+        <div className={styles.mobileSearch}>
+          <div className='mt2 mb2 w10'>
+            <div onClick={() => setIsSearchShow(false)} className={styles.searchCancelButton}>
+              &times;
+            </div>
+          </div>
+          <div className={styles.serarchButtonContainer}>
+            <div className={'mauto w10'}>{renderSearchBox()}</div>
+          </div>
+        </div>
+      }
       <WFTMModal
         visible={wftmModalVisible}
         onClose={() => dispatch(ModalActions.hideWFTMModal())}

@@ -354,7 +354,7 @@ const BaseCard = ({ item, loading, style, create, onCreate, onLike }) => {
   return (
     <div
       style={style}
-      className={cx(styles.root, 'sc-card-product')}
+      className={cx(styles.root)}
       onClick={onCreate}
     >
       {loading || fetching ? (
@@ -405,8 +405,8 @@ const BaseCard = ({ item, loading, style, create, onCreate, onLike }) => {
                   {item.alias
                     ? shortenName(item.alias)
                     : isAddress(item.owner)
-                    ? shortenAddress(item.owner)
-                    : item.owner}
+                      ? shortenAddress(item.owner)
+                      : item.owner}
                 </h6>
               </div>
             </div>

@@ -15,6 +15,11 @@ import { useApi } from 'api';
 import { fa } from 'faker/lib/locales';
 import { Maximize } from '@material-ui/icons';
 import { getExactImageUrl } from 'utils';
+import { style } from '@mui/system';
+import { LinearProgress } from '@material-ui/core';
+
+import { AiOutlineShoppingCart, AiOutlineArrowRight } from "react-icons/ai";
+
 
 const AccountDetails = () => {
   const [activities, setActivities] = useState([]);
@@ -150,111 +155,14 @@ const AccountDetails = () => {
       <Header border />
       <section
         className={styles.bannerSection}
-        // style={{ backgroundImage: "url('/assets/images/banner/01.gif')" }}
+      // style={{ backgroundImage: "url('/assets/images/banner/01.gif')" }}
       >
-        <img
+        {/* <img
           src="/assets/images/banner/03.gif"
           className={styles.backgroundImg}
-        />
+        /> */}
       </section>
-      <div className={styles.container}>
-        <div className={styles.activityWrapper}>
-          <div className={styles.activityHeader}>Sitewide Activities</div>
-          {isLoading ? (
-            <Skeleton width="100%" height="160px" count={3}></Skeleton>
-          ) : (
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-              }}
-            >
-              {activities.length ? (
-                <>
-                  {validActivities.map((activ, idx) => {
-                    return (
-                      <div key={idx} className={styles.activityCard}>
-                        <div className={styles.activityImage}>
-                          {activ.imageURL ? (
-                            activ.imageURL.slice(0, 4) === 'http' ? (
-                              <img
-                                src={activ.imageURL}
-                                style={{
-                                  width: '100%',
-                                  height: '100%',
-                                  borderRadius: '15px',
-                                }}
-                              />
-                            ) : (
-                              <img
-                                src={getExactImageUrl(activ.imageURL)}
-                                style={{
-                                  width: '100%',
-                                  height: '100%',
-                                  borderRadius: '15px',
-                                }}
-                              />
-                            )
-                          ) : (
-                            <Identicon
-                              account={activ.operator}
-                              size={160}
-                              className={styles.userAvatar}
-                            />
-                          )}
-                        </div>
-                        <div
-                          style={{ display: 'flex', flexDirection: 'column' }}
-                        >
-                          <div className={styles.activityName}>
-                            {activ.name.length > 15
-                              ? shortAddress(activ.name)
-                              : activ.name}
-                          </div>
-                          <div className={styles.activityInfo}>
-                            operation: {activ.event}
-                          </div>
-                          <div className={styles.activityInfo}>
-                            By:{' '}
-                            <Link
-                              to={`/account/${activ.operator}`}
-                              className={styles.operatorLink}
-                            >
-                              {activ.alias || shortAddress(activ.operator)}
-                            </Link>
-                          </div>
-                          <div className={styles.activityInfo}>
-                            At:{' '}
-                            {format(
-                              new Date(activ.createdAt),
-                              'MM/dd/yyyy hh:mm aaaa'
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                  <div
-                    className={styles.loadmoreBtn}
-                    onClick={() => {
-                      setPageNum(pageNum + 1);
-                    }}
-                    style={
-                      maxPageNum <= pageNum
-                        ? { display: 'none' }
-                        : { display: 'block' }
-                    }
-                  >
-                    Load More
-                  </div>
-                </>
-              ) : (
-                <></>
-              )}
-            </div>
-          )}
-        </div>
+      <div className={styles.filterBody}>
         <div className={styles.activityFilter}>
           <div className={styles.filterHeader}>Filter</div>
           <ul className={styles.filterContent}>
@@ -324,6 +232,114 @@ const AccountDetails = () => {
             </li>
           </ul>
         </div>
+
+        <div className={styles.activityWrapper}>
+          {/* <div className={styles.activityHeader}>Sitewide Activities</div> */}
+          {isLoading ? (
+            <div className={styles.loadingWrapper}>
+              <LinearProgress />
+            </div>
+            // <Skeleton width="100%" height="20px" count={1}></Skeleton>
+          ) : (
+            <div
+            >
+              {activities.length ? (
+                <>
+                  <table className={styles.table}>
+                    <thead className=''>
+                      <tr className=''>
+                        <th className={styles.event}>EVENT</th>
+                        <th className={styles.token}>TOKEN <span className=''>RANK</span> </th>
+                        <th className={styles.value}>VALUE <span className=''>ETH</span> </th>
+                        <th className={styles.from}>FROM/TO</th>
+                        <th className={styles.date}>DATE <span className=''> ^ </span> </th>
+                        <th className={styles.scan}></th>
+                      </tr>
+                    </thead>
+                    <tbody className=''>
+                      {validActivities.map((activ, idx) => {
+                        console.log(activ);
+                        return (
+                          <tr key={idx} className=''>
+                            <td className=''>
+                              <div className='dis-f fd-c jc-sb '>
+                                <div className=''>
+                                  <AiOutlineShoppingCart />
+                                </div>
+                                <div className=''>
+                                  market info
+                                </div>
+                              </div>
+                            </td>
+                            <td className=''>
+                              <div className='dis-f ai-c gap20 '>
+                                <div className=''>
+                                  {activ.imageURL ? (
+                                    activ.imageURL.slice(0, 4) === 'http' ? (
+                                      <img src={activ.imageURL} style={{ width: '50px', height: '50px', borderRadius: '5px', }}
+                                      />
+                                    ) : (
+                                      <img src={getExactImageUrl(activ.imageURL)} style={{ width: '50px', height: '50px', borderRadius: '5px', }} />
+                                    )
+                                  ) : (
+                                    <Identicon account={activ.operator} size={160} className={styles.userAvatar} />
+                                  )}
+                                </div>
+                                <div className='dis-f fd-c gap10'>
+                                  <div className='justify'></div>
+                                  <div className=''>{activ.name}</div>
+                                </div>
+                              </div>
+                            </td>
+                            <td className=''>
+                              <div className='dis-f fd-c jc-sb'>
+                                <div className=''>0.0009 FTM</div>
+                                <div className='fiat-display'>≈ $14.19 $</div>
+                              </div>
+                            </td>
+                            <td className=''>
+                              <div className='dis-f ai-c jc-s gap10'>
+                                <div className='purple-bg'>from</div>
+                                <div className=''>{shortAddress(activ.operator)}</div>
+                                <div className=''><AiOutlineArrowRight fontSize={'17px'} /></div>
+                                <div className='purple-bg'>to</div>
+                                <div className=''>avatar</div>
+                              </div>
+                            </td>
+                            <td className=''>
+                              <span className=''>1 minute ago</span>
+                            </td>
+                            <td className=''>
+                              <Link to='' className=''>Scan</Link>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+
+                  <div
+                    className={styles.loadmoreBtn}
+                    onClick={() => {
+                      setPageNum(pageNum + 1);
+                    }}
+                    style={
+                      maxPageNum <= pageNum
+                        ? { display: 'none' }
+                        : { display: 'block' }
+                    }
+                  >
+                    Load More
+                  </div>
+
+                </>
+              ) : (
+                <></>
+              )}
+            </div>
+          )}
+        </div>
+
       </div>
       <Footer />
     </>

@@ -25,6 +25,8 @@ import iconCollapse from 'assets/svgs/collapse.svg';
 import './style.css';
 import styles from './styles.module.scss';
 import PageHeader from '../../components/PageHeader';
+import { Link } from 'react-router-dom';
+import { BsSortDownAlt } from "react-icons/bs";
 
 const PageHeaderText = {
   heading: "Explore All NFT's",
@@ -184,15 +186,15 @@ const ExploreAllPage = () => {
         dir > 0
           ? [...tokens, ...data.tokens]
           : dir < 0
-          ? [...data.tokens, ...tokens]
-          : data.tokens;
+            ? [...data.tokens, ...tokens]
+            : data.tokens;
       newTokens = newTokens.filter(
         (tk, idx) =>
           newTokens.findIndex(_tk =>
             tk.items
               ? tk._id === _tk._id
               : tk.contractAddress === _tk.contractAddress &&
-                tk.tokenID === _tk.tokenID
+              tk.tokenID === _tk.tokenID
           ) === idx
       );
       let _from = from;
@@ -264,16 +266,16 @@ const ExploreAllPage = () => {
       let missingTokens = tokens.map((tk, index) =>
         tk.items
           ? {
-              index,
-              isLiked: tk.isLiked,
-              bundleID: tk._id,
-            }
+            index,
+            isLiked: tk.isLiked,
+            bundleID: tk._id,
+          }
           : {
-              index,
-              isLiked: tk.isLiked,
-              contractAddress: tk.contractAddress,
-              tokenID: tk.tokenID,
-            }
+            index,
+            isLiked: tk.isLiked,
+            contractAddress: tk.contractAddress,
+            tokenID: tk.tokenID,
+          }
       );
       if (prevAuthToken) {
         missingTokens = missingTokens.filter(tk => tk.isLiked === undefined);
@@ -316,45 +318,64 @@ const ExploreAllPage = () => {
       {/* <PageHeader text={PageHeaderText} /> */}
       <section
         className={styles.bannerSection}
-        // style={{ backgroundImage: "url('/assets/images/banner/01.gif')" }}
+      // style={{ backgroundImage: "url('/assets/images/banner/01.gif')" }}
       >
-        <img
+        {/* <img
           src="/assets/images/banner/02.gif"
           className={styles.backgroundImg}
-        />
+        /> */}
       </section>
       <div className={styles.nftContainer}>
         <div
           // ref={conRef}
           className={styles.container}
-          // onScroll={width <= 600 ? handleScroll : null}
+        // onScroll={width <= 600 ? handleScroll : null}
         >
-          {/* <div className={cx(styles.sidebar, collapsed && styles.collapsed)}>
-          <div className={styles.sidebarHeader}>
-            {!collapsed && <div className={styles.sidebarTitle}>Filters</div>}
-            <img
-              src={iconCollapse}
-              className={styles.iconCollapse}
-              onClick={() => setCollapsed(!collapsed)}
-            />
+          <div className={cx(styles.sidebar, collapsed && styles.collapsed)}>
+            <div className={styles.sidebarHeader}>
+              {!collapsed && <div className={styles.sidebarTitle}>Filters</div>}
+              <img
+                src={iconCollapse}
+                className={styles.iconCollapse}
+                onClick={() => setCollapsed(!collapsed)}
+              />
+            </div>
+            <div className={styles.filterList}>
+              <StatusFilter />
+              <CollectionsFilter />
+              <CategoriesFilter />
+            </div>
           </div>
-          <div className={styles.filterList}>
-            <StatusFilter />
-            <CollectionsFilter />
-            <CategoriesFilter />
-          </div>
-        </div> */}
+
+
           <div className={styles.body}>
-            <div className={styles.filterHeader}>
+            {/* <div className={styles.filterHeader}>
               <ExploreFilterHeader
                 loading={upFetching || downFetching}
                 categoryList={category}
               />
+            </div> */}
+
+            <div className={styles.nftHeader}>
+              <div className={styles.nftHeaderLists}>
+                <Link to='/' className={styles.nftHeaderList}>Analytics</Link>
+                <Link to='/' className={styles.nftHeaderList}>Items</Link>
+                <Link to='/activity' className={styles.nftHeaderList}>Activity</Link>
+                <Link to='/' className={styles.nftHeaderList}>Traits</Link>
+
+                <div className={styles.sortBy}>
+                  <div className={styles.sortByBg}>
+                    <div><BsSortDownAlt className='cu-po' fontSize={'25px'} /></div  >
+                    <div className='font-15'>Sort by lowest price</div>
+                  </div>
+                </div>
+              </div>
             </div>
+
             <div
               ref={ref}
               className={styles.exploreAll}
-              // onScroll={width > 600 ? handleScroll : null}
+            // onScroll={width > 600 ? handleScroll : null}
             >
               <NFTsGrid
                 items={tokens}
